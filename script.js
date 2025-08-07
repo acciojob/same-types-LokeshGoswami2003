@@ -9,6 +9,11 @@ function isSameType(value1, value2) {
     // General case: compare types directly
     return typeof value1 === typeof value2;
 }
+function parseValue(val) {
+    if (val === "NaN") return NaN;
+    if (!isNaN(val) && val.trim() !== "") return Number(val);
+    return val;
+}
 
 // do not change the code below.
 let value1 = prompt("Enter Start of the Range.");
