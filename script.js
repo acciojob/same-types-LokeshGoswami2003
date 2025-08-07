@@ -11,7 +11,13 @@ function isSameType(value1, value2) {
 }
 function parseValue(val) {
     if (val === "NaN") return NaN;
-    if (!isNaN(val) && val.trim() !== "") return Number(val);
+
+    // Convert to string to safely use .trim()
+    const str = String(val);
+
+    // If it's a number string, convert to number
+    if (!isNaN(str) && str.trim() !== "") return Number(str);
+
     return val;
 }
 
